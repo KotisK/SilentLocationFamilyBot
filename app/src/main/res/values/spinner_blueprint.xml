@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="phone_locations">
+        <item>All locations</item>
+    </string-array>
+</resources>
