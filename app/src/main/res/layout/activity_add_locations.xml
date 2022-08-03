@@ -88,28 +88,41 @@
 
         <Button
             android:id="@+id/addNewLocationButton"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
+            android:layout_width="227dp"
+            android:layout_height="55dp"
             android:layout_marginTop="50dp"
             android:backgroundTint="@color/buttons"
             android:text="Add a location"
             app:cornerRadius="10dp"
-            app:layout_constraintBottom_toTopOf="@+id/toolbar2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameOfLocationEditText"
-            app:layout_constraintVertical_bias="0.035" />
+            app:layout_constraintTop_toBottomOf="@+id/nameOfLocationEditText" />
+
+        <Button
+            android:id="@+id/deleteLocationsButton"
+            android:layout_width="231dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/buttons"
+            android:text="Remove all locations"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addNewLocationButton" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:background="#234944"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/deleteLocationsButton"
+            app:layout_constraintVertical_bias="1.0" />
 
         <EditText
             android:id="@+id/nameOfLocationEditText"

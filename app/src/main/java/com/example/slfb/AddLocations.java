@@ -53,10 +53,10 @@ public class AddLocations extends AppCompatActivity {
     private boolean GPSIsReady = false;
 
 
-    //puts the vatiables in the UI Longitude, Latitude, Radius, Location Name and the button to add the location
+    //puts the variables in the UI Longitude, Latitude, Radius, Location Name and the button to add the location
     private TextView lo, la;
     private EditText radius, locationName;
-    private Button addLocationButton;
+    private Button addLocationButton,removeLocations;
 
     //An Android Context is an Interface
     // (in the general sense, not in the Java sense; in Java, Context is actually an abstract class!)
@@ -94,8 +94,23 @@ public class AddLocations extends AppCompatActivity {
         locationName = findViewById(R.id.nameOfLocationEditText);
 
         addLocationButton = findViewById(R.id.addNewLocationButton);
+        removeLocations = findViewById(R.id.deleteLocationsButton);
         //Check if we have the rights to get the users location.
         getLocation();
+
+        //this code removes the locations when the user clicks on the button to remove them and then
+        //sends the user notification that the locations have been removed
+
+        removeLocations.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editor.clear();
+                editor.commit();
+                Toast.makeText(context, "Removed all locations!" , Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(AddLocations.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //When you press "add location", we first need to see if GPSIsReady is true. If it is we know we have gotten a GPS location
         //from the users phone.

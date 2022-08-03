@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -15,7 +16,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
+import android.view.ViewManager;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -86,7 +89,25 @@ public class HomeActivity extends AppCompatActivity {
         Button editPhoneListButton = findViewById(R.id.editPhoneNumberButton);
         Button addLocationButton = findViewById(R.id.addLocationsButton);
         Button notifyUsersButton = findViewById(R.id.notifyButton);
-        Button notifyUsersButton2 = findViewById(R.id.notifyButton2);
+        Button recieveLocationButton = findViewById(R.id.recieveLocationButton);
+        TextView userName = findViewById(R.id.loggedInUserTextView);
+        TextView roleOfUser = findViewById(R.id.loggedInUserRoleTextView);
+
+        SharedPreferences pref2 = getApplicationContext().getSharedPreferences("role", MODE_PRIVATE);
+        String role = pref2.getString("role", "");
+
+        //checks if the user is a kid and then if it is a kid it removes the button to receive location from users
+        if(role.equals("") || role.equals("child")){
+            //automated code
+            @SuppressLint("CutPasteId") View v = (View) findViewById(R.id.recieveLocationButton);
+            //get the view from the ID and then you cast it to a view manager, get its parents and then remove the view
+            ((ViewManager)v.getParent()).removeView(v);
+        }
+        //text that shows who is currently logged in and their role
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("user", MODE_PRIVATE);
+        String username = pref.getString("user", "");
+        userName.setText("Logged in as: " + username);
+        roleOfUser.setText("Role: " + role);
 
         //We change how "addLocationButton" button behaves when clicked. It should relocate you to the "AddLocation" page.
         addLocationButton.setOnClickListener(new View.OnClickListener() {
@@ -130,7 +151,7 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        notifyUsersButton2.setOnClickListener(new View.OnClickListener() {
+        recieveLocationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this , RecieveNotification.class);

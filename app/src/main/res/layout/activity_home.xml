@@ -66,7 +66,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
             android:backgroundTint="@color/buttons"
-            android:text="Add a phone number list"
+            android:text="Add a phone number"
             app:cornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
@@ -79,7 +79,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="88dp"
             android:backgroundTint="@color/buttons"
-            android:text="Add a location"
+            android:text="Add/Refresh location"
             app:cornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
@@ -113,7 +113,7 @@
             app:layout_constraintTop_toBottomOf="@+id/editPhoneNumberButton" />
 
         <Button
-            android:id="@+id/notifyButton2"
+            android:id="@+id/recieveLocationButton"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -138,6 +138,30 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <TextView
+            android:id="@+id/loggedInUserTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logged in as: Johnny123 "
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/loggedInUserRoleTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainLogo"
+            app:layout_constraintVertical_bias="0.3" />
+
+        <TextView
+            android:id="@+id/loggedInUserRoleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="28dp"
+            android:text="Role: Child"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/addLocationsButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

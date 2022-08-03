@@ -60,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
     //Declare the Button variable
     private Button loginButton;
 
+    //Declare a string to hold the family role
+    private String familyRole = "";
+
     ActivityResultLauncher<Intent> askForRoleManagerAsCallScreener = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
@@ -113,6 +116,12 @@ public class MainActivity extends AppCompatActivity {
                                 SharedPreferences.Editor editor = pref.edit();
                                 editor.putString("user" , username.getText().toString());
                                 editor.apply();
+                                //Save the family role in a shared preference to know what role the current user has.
+                                SharedPreferences pref2 = getApplicationContext().getSharedPreferences("role", MODE_PRIVATE);
+                                SharedPreferences.Editor editor2 = pref2.edit();
+                                editor2.putString("role" , familyRole);
+                                editor2.apply();
+
                                 Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                                 startActivity(intent);
                             }
@@ -162,15 +171,17 @@ public class MainActivity extends AppCompatActivity {
         try {
             //Execute the request by sending it and get the response from the server.
             Response response = client.newCall(request).execute();
-            //If the response is "s" we know the username and password exists in the database.
-            if(Objects.requireNonNull(response.body()).string().equals("s")){
-                connectionError = false;
-                return true;
-            }
-            //If the response is not "s" we know the username or password does not exist in the database.
-            else{
+            //If the response is "f" we know the username and password does not exist in the database.
+            String role = Objects.requireNonNull(response.body()).string();
+            if(role.equals("f")){
                 connectionError = false;
                 return false;
+            }
+            //If the response is not "f" we know the username or password does exist in the database.
+            else{
+                familyRole = role;
+                connectionError = false;
+                return true;
             }
         } catch (IOException e) {
             //There was an error sending the data to the server.

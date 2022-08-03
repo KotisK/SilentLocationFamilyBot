@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Sokratis/AndroidStudioProjects/SLFB/app/src/main/res/layout/activity_add_locations.xml" value="0.3625" />
+        <entry key="..\:/Users/Sokratis/AndroidStudioProjects/SLFB/app/src/main/res/layout/activity_add_phone_number_list.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/Sokratis/AndroidStudioProjects/SLFB/app/src/main/res/layout/activity_edit_phone_list.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/Sokratis/AndroidStudioProjects/SLFB/app/src/main/res/layout/activity_edit_selected_number.xml" value="0.3625" />
+        <entry key="..\:/Users/Sokratis/AndroidStudioProjects/SLFB/app/src/main/res/layout/activity_give_notification.xml" value="0.3625" />
+        <entry key="..\:/Users/Sokratis/AndroidStudioProjects/SLFB/app/src/main/res/layout/activity_home.xml" value="0.3625" />
         <entry key="..\:/Users/serha/AndroidStudioProjects/SLFB/app/src/main/res/drawable/dash.xml" value="0.203" />
         <entry key="..\:/Users/serha/AndroidStudioProjects/SLFB/app/src/main/res/drawable/switch_thumb_selector.xml" value="0.1725" />
         <entry key="..\:/Users/serha/AndroidStudioProjects/SLFB/app/src/main/res/drawable/switch_track_selector.xml" value="0.1725" />
